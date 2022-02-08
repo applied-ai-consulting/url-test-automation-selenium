@@ -7,10 +7,9 @@ def test_Openurl(setup):
     # pdb.set_trace()
     try:
         before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
-        print(before_time)
         driver.get(url)
         now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
-        print(now_time)
+        timestamp_diff =  int(now_time)-int(before_time)
     except Exception as e:
         print(e.message)
     # import pdb
