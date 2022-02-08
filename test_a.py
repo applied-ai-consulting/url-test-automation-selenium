@@ -11,7 +11,6 @@ def test_Openurl(setup):
         driver.get(url)
         now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
         print(now_time)
-        time_diff = int(now_time - before_time)
     except Exception as e:
         print(e.message)
     # import pdb
