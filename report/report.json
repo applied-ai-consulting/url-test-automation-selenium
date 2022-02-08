@@ -1,7 +1,7 @@
 {
-    "created": 1644311730.3276992,
-    "duration": 57.58277487754822,
-    "exitcode": 1,
+    "created": 1644319621.255222,
+    "duration": 57.97080612182617,
+    "exitcode": 0,
     "root": "C:\\AAIC\\pranav_automation",
     "environment": {
         "Python": "3.10.2",
@@ -18,7 +18,7 @@
         }
     },
     "summary": {
-        "failed": 1,
+        "passed": 1,
         "total": 1,
         "collected": 1
     },
@@ -49,35 +49,22 @@
         {
             "nodeid": "test_a.py::test_Openurl",
             "lineno": 2,
-            "outcome": "failed",
+            "outcome": "passed",
             "keywords": [
-                "test_a.py",
+                "pranav_automation",
                 "test_Openurl",
-                "pranav_automation"
+                "test_a.py"
             ],
             "setup": {
-                "duration": 1.3676838999381289,
+                "duration": 1.3890991999069229,
                 "outcome": "passed"
             },
             "call": {
-                "duration": 55.943546700058505,
-                "outcome": "failed",
-                "crash": {
-                    "path": "C:\\AAIC\\pranav_automation\\test_a.py",
-                    "lineno": 16,
-                    "message": "AttributeError: 'TypeError' object has no attribute 'message'"
-                },
-                "traceback": [
-                    {
-                        "path": "test_a.py",
-                        "lineno": 16,
-                        "message": "AttributeError"
-                    }
-                ],
-                "longrepr": "setup = {'driver': <selenium.webdriver.chrome.webdriver.WebDriver (session=\"b49a3c970bea96f732974756bb229ed2\")>, 'url': 'https://appliedaiconsulting.com/'}\n\n    def test_Openurl(setup):\n        driver = setup[\"driver\"]\n        url = setup[\"url\"]\n        # import pdb\n        # pdb.set_trace()\n        try:\n            before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp\n            print(before_time)\n            driver.get(url)\n            now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp\n            print(now_time)\n>           time_diff = now_time - before_time\nE           TypeError: unsupported operand type(s) for -: 'str' and 'str'\n\ntest_a.py:14: TypeError\n\nDuring handling of the above exception, another exception occurred:\n\nsetup = {'driver': <selenium.webdriver.chrome.webdriver.WebDriver (session=\"b49a3c970bea96f732974756bb229ed2\")>, 'url': 'https://appliedaiconsulting.com/'}\n\n    def test_Openurl(setup):\n        driver = setup[\"driver\"]\n        url = setup[\"url\"]\n        # import pdb\n        # pdb.set_trace()\n        try:\n            before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp\n            print(before_time)\n            driver.get(url)\n            now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp\n            print(now_time)\n            time_diff = now_time - before_time\n        except Exception as e:\n>           print(e.message)\nE           AttributeError: 'TypeError' object has no attribute 'message'\n\ntest_a.py:16: AttributeError"
+                "duration": 54.404607599950396,
+                "outcome": "passed"
             },
             "teardown": {
-                "duration": 0.005414300016127527,
+                "duration": 0.0015617000171914697,
                 "outcome": "passed"
             }
         }
