@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
@@ -14,8 +14,9 @@ def setup(pytestconfig):
     # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
     # driver = webdriver.Chrome(service=s)
     chrome_options = webdriver.ChromeOptions()
+    chrome_path = "/usr/local/bin/chromedriver"
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(chrome_path,chrome_options=chrome_options)
     driver.maximize_window()
     yield {"driver": driver, "url": pytestconfig.getoption("url")}

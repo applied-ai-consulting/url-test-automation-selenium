@@ -3,4 +3,3 @@ pytest-json-report
 pytest-html
 selenium
 jq
-webdriver-manager
