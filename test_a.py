@@ -1,6 +1,8 @@
 from datetime import datetime
+import pdb
 
 def test_Openurl(setup):
+    pdb.set_trace()
     driver = setup["driver"]
     url = setup["url"]
     
