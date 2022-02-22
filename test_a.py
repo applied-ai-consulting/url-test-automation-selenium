@@ -1,6 +1,8 @@
 from datetime import datetime
 
+
 def test_Openurl(setup):
+
     driver = setup["driver"]
     url = setup["url"]
     before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
