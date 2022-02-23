@@ -5,7 +5,6 @@ def test_Openurl(setup):
 
     driver = setup["driver"]
     url = setup["url"]
-    print(url)
     before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
     driver.get(url)
     now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
