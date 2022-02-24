@@ -10,7 +10,7 @@ def test_Openurl(setup):
     now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
     response_time = int(now_time) - int(before_time)
     assert driver.current_url == url
-    driver.save_screenshot("ss.png")
+    driver.save_screenshot("report/ss.png")
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    driver.save_screenshot("ss1.png")
+    driver.save_screenshot("report/ss1.png")
     driver.close()
