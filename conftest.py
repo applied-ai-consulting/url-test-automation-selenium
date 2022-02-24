@@ -1,4 +1,6 @@
 import pytest
+from pytz import timezone
+from datetime import datetime 
 from selenium import webdriver
 
 
@@ -19,3 +21,18 @@ def setup(pytestconfig):
     driver = webdriver.Chrome(chromedriver_path,chrome_options=chrome_options)
     driver.maximize_window()
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
+
+
+@pytest.hookimpl(optionalhook=True)
+def pytest_json_runtest_metadata(call):
+    """
+    fixture from the pytest-json-report plugin that will add your info
+    """
+    if call.when != 'call':
+       return {}
+
+    # collect the start and finish times in ISO format for the US/Eastern timezone
+    start_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.start))
+    stop_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.stop))
+    response_time = (stop_iso_dt - start_iso_dt).total_seconds()
+    return {'response_time': str(response_time)}
