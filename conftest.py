@@ -18,8 +18,8 @@ def setup(pytestconfig):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
-    chromedriver_path =Service("/usr/local/bin/chromedriver")
-    driver = webdriver.Chrome(chromedriver_path,options=options)
+    chromedriver_path =Service(r"/usr/local/bin/chromedriver")
+    driver = webdriver.Chrome(service= chromedriver_path,options=options)
     driver.maximize_window()
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
 
