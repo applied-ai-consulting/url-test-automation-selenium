@@ -35,4 +35,5 @@ def pytest_json_runtest_metadata(call):
     start_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.start))
     stop_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.stop))
     response_time = (stop_iso_dt - start_iso_dt).total_seconds()
-    return {'response_time': str(response_time)}
+    throughput = 60/(1 + response_time)
+    return {'response_time': str(response_time),"throughput" : str(throughput/60)}
