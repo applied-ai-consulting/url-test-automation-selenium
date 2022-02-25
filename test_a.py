@@ -4,7 +4,7 @@ from datetime import datetime
 def test_Openurl(setup):
 
     driver = setup["driver"]
-    url = setup["url"]
+    url = setup["url"] + "/"
     before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
     driver.get(url)
     now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
