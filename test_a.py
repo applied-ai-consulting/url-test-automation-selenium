@@ -2,7 +2,7 @@ from datetime import datetime
 import pytest
 
 @pytest.mark.usefixtures("timings")
-def test_Openurl(setup):
+def test_Openurl(setup,timings):
 
     driver = setup["driver"]
     url = setup["url"]
