@@ -24,17 +24,27 @@ def setup(pytestconfig):
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
 
 
-@pytest.hookimpl(optionalhook=True)
-def pytest_json_runtest_metadata(call):
+@pytest.fixture(scope='session')
+def timings(metadata):
     """
-    fixture from the pytest-json-report plugin that will add your info
+    used to track stopwatch timings taken during a session
     """
-    if call.when != 'call':
-       return {}
+    stopwatches = []
 
-    # collect the start and finish times in ISO format for the US/Eastern timezone
-    start_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.start))
-    stop_iso_dt = timezone('Asia/Kolkata').localize(datetime.fromtimestamp(call.stop))
-    response_time = (stop_iso_dt - start_iso_dt).total_seconds()
-    throughput = 60/(1 + response_time)
-    return {'response_time': str(response_time),"throughput" : str(throughput/60)}
+    def factory(stopwatch_name, response_time):
+        response_time = response_time/1000000
+        throughput = 60/(1 + response_time)
+        fsw = {'name': stopwatch_name, 'response_time': response_time,"throughput":throughput}
+        stopwatches.append(fsw)
+        return fsw
+
+    yield factory
+
+    # add our stopwatches to the session's json_report metadata so that we can report it out
+    metadata['stopwatches'] = stopwatches
+
+
+
+@pytest.hookimpl(optionalhook=True)
+def pytest_json_modifyreport(json_report):
+    stopwatches = json_report['environment']['stopwatches']
