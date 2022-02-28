@@ -1,6 +1,6 @@
 {
-    "created": 1644480610.496344,
-    "duration": 14.552541971206665,
+    "created": 1646038114.9021413,
+    "duration": 11.635532855987549,
     "exitcode": 0,
     "root": "C:\\AAIC\\pranav_automation",
     "environment": {
@@ -15,6 +15,10 @@
             "html": "3.1.1",
             "json-report": "1.4.1",
             "metadata": "1.11.0"
+        },
+        "Analytics": {
+            "response_time": 7.181,
+            "Throughput": 7.334066740007334
         }
     },
     "summary": {
@@ -40,7 +44,7 @@
                 {
                     "nodeid": "test_a.py::test_Openurl",
                     "type": "Function",
-                    "lineno": 2
+                    "lineno": 3
                 }
             ]
         }
@@ -48,135 +52,25 @@
     "tests": [
         {
             "nodeid": "test_a.py::test_Openurl",
-            "lineno": 2,
+            "lineno": 3,
             "outcome": "passed",
             "keywords": [
+                "pytestmark",
                 "test_Openurl",
                 "test_a.py",
-                "pranav_automation"
+                "pranav_automation",
+                "usefixtures"
             ],
             "setup": {
-                "duration": 1.994588700006716,
-                "outcome": "passed",
-                "log": [
-                    {
-                        "name": "WDM",
-                        "msg": "\n",
-                        "args": null,
-                        "levelname": "INFO",
-                        "levelno": 20,
-                        "pathname": "C:\\Users\\AAIC\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\webdriver_manager\\logger.py",
-                        "filename": "logger.py",
-                        "module": "logger",
-                        "exc_info": null,
-                        "exc_text": null,
-                        "stack_info": null,
-                        "lineno": 26,
-                        "funcName": "log",
-                        "created": 1644480595.9749837,
-                        "msecs": 974.9836921691895,
-                        "relativeCreated": 707.270622253418,
-                        "thread": 3692,
-                        "threadName": "MainThread",
-                        "processName": "MainProcess",
-                        "process": 18620
-                    },
-                    {
-                        "name": "WDM",
-                        "msg": "====== WebDriver manager ======",
-                        "args": null,
-                        "levelname": "INFO",
-                        "levelno": 20,
-                        "pathname": "C:\\Users\\AAIC\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\webdriver_manager\\logger.py",
-                        "filename": "logger.py",
-                        "module": "logger",
-                        "exc_info": null,
-                        "exc_text": null,
-                        "stack_info": null,
-                        "lineno": 26,
-                        "funcName": "log",
-                        "created": 1644480595.9749837,
-                        "msecs": 974.9836921691895,
-                        "relativeCreated": 707.270622253418,
-                        "thread": 3692,
-                        "threadName": "MainThread",
-                        "processName": "MainProcess",
-                        "process": 18620
-                    },
-                    {
-                        "name": "WDM",
-                        "msg": "Current google-chrome version is 98.0.4758",
-                        "args": null,
-                        "levelname": "INFO",
-                        "levelno": 20,
-                        "pathname": "C:\\Users\\AAIC\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\webdriver_manager\\logger.py",
-                        "filename": "logger.py",
-                        "module": "logger",
-                        "exc_info": null,
-                        "exc_text": null,
-                        "stack_info": null,
-                        "lineno": 26,
-                        "funcName": "log",
-                        "created": 1644480596.0310013,
-                        "msecs": 31.00132942199707,
-                        "relativeCreated": 763.2882595062256,
-                        "thread": 3692,
-                        "threadName": "MainThread",
-                        "processName": "MainProcess",
-                        "process": 18620
-                    },
-                    {
-                        "name": "WDM",
-                        "msg": "Get LATEST chromedriver version for 98.0.4758 google-chrome",
-                        "args": null,
-                        "levelname": "INFO",
-                        "levelno": 20,
-                        "pathname": "C:\\Users\\AAIC\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\webdriver_manager\\logger.py",
-                        "filename": "logger.py",
-                        "module": "logger",
-                        "exc_info": null,
-                        "exc_text": null,
-                        "stack_info": null,
-                        "lineno": 26,
-                        "funcName": "log",
-                        "created": 1644480596.0310013,
-                        "msecs": 31.00132942199707,
-                        "relativeCreated": 763.2882595062256,
-                        "thread": 3692,
-                        "threadName": "MainThread",
-                        "processName": "MainProcess",
-                        "process": 18620
-                    },
-                    {
-                        "name": "WDM",
-                        "msg": "Driver [C:\\Users\\AAIC\\.wdm\\drivers\\chromedriver\\win32\\98.0.4758.80\\chromedriver.exe] found in cache",
-                        "args": null,
-                        "levelname": "INFO",
-                        "levelno": 20,
-                        "pathname": "C:\\Users\\AAIC\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\webdriver_manager\\logger.py",
-                        "filename": "logger.py",
-                        "module": "logger",
-                        "exc_info": null,
-                        "exc_text": null,
-                        "stack_info": null,
-                        "lineno": 26,
-                        "funcName": "log",
-                        "created": 1644480596.3333771,
-                        "msecs": 333.3771228790283,
-                        "relativeCreated": 1065.6640529632568,
-                        "thread": 3692,
-                        "threadName": "MainThread",
-                        "processName": "MainProcess",
-                        "process": 18620
-                    }
-                ]
+                "duration": 1.5403436000051443,
+                "outcome": "passed"
             },
             "call": {
-                "duration": 10.270255399984308,
+                "duration": 7.870284899981925,
                 "outcome": "passed"
             },
             "teardown": {
-                "duration": 0.0008396999910473824,
+                "duration": 0.0021970999951008707,
                 "outcome": "passed"
             }
         }
