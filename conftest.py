@@ -27,14 +27,13 @@ def timings(metadata):
     """
     used to calculate Analytics
     """
-    Analytics = []
+    Analytics = {}
 
     def factory(response_time):
         response_time = response_time/1000000
         throughput = 60/(1 + response_time)
-        fsw = {'response_time': response_time,"throughput":throughput}
-        Analytics.append(fsw)
-        return fsw
+        Analytics["Response_time"]= response_time
+        Analytics["Throughput"]=throughput
 
     yield factory
 
@@ -43,6 +42,6 @@ def timings(metadata):
 
 
 
-@pytest.hookimpl(optionalhook=True)
-def pytest_json_modifyreport(json_report):
-    Analytics = json_report['environment']['Analytics']
+# @pytest.hookimpl(optionalhook=True)
+# def pytest_json_modifyreport(json_report):
+#     Analytics = json_report['environment']['Analytics']
