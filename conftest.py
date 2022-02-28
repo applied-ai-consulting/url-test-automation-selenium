@@ -25,7 +25,7 @@ def setup(pytestconfig):
 @pytest.fixture(scope='session')
 def timings(metadata):
     """
-    used to track stopwatch timings taken during a session
+    used to calculate Analytics
     """
     Analytics = []
 
@@ -38,7 +38,7 @@ def timings(metadata):
 
     yield factory
 
-    # add our stopwatches to the session's json_report metadata so that we can report it out
+    # add our Analytics to the json_report metadata so that we can report it out
     metadata['Analytics'] = Analytics
 
 
