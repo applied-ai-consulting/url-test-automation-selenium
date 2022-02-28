@@ -29,10 +29,10 @@ def timings(metadata):
     """
     stopwatches = []
 
-    def factory(stopwatch_name, response_time):
+    def factory(response_time):
         response_time = response_time/1000000
         throughput = 60/(1 + response_time)
-        fsw = {'name': stopwatch_name, 'response_time': response_time,"throughput":throughput}
+        fsw = {'response_time': response_time,"throughput":throughput}
         stopwatches.append(fsw)
         return fsw
 
