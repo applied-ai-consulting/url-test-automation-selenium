@@ -27,22 +27,22 @@ def timings(metadata):
     """
     used to track stopwatch timings taken during a session
     """
-    stopwatches = []
+    Analytics = []
 
     def factory(response_time):
         response_time = response_time/1000000
         throughput = 60/(1 + response_time)
         fsw = {'response_time': response_time,"throughput":throughput}
-        stopwatches.append(fsw)
+        Analytics.append(fsw)
         return fsw
 
     yield factory
 
     # add our stopwatches to the session's json_report metadata so that we can report it out
-    metadata['stopwatches'] = stopwatches
+    metadata['Analytics'] = Analytics
 
 
 
 @pytest.hookimpl(optionalhook=True)
 def pytest_json_modifyreport(json_report):
-    stopwatches = json_report['environment']['stopwatches']
+    Analytics = json_report['environment']['Analytics']
