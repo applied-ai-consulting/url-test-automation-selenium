@@ -47,7 +47,7 @@ def timings(metadata):
         response_time = response_time/1000000
         throughput = 60/(1 + response_time)
         # fsw = {'response_time': response_time,"throughput":throughput}
-        Analytics["response_time"] = response_time
+        Analytics["Response_time"] = response_time
         Analytics["Throughput"] = throughput
         
 
