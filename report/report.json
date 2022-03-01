@@ -1,6 +1,6 @@
 {
-    "created": 1646038114.9021413,
-    "duration": 11.635532855987549,
+    "created": 1646137777.8763394,
+    "duration": 7.766232252120972,
     "exitcode": 0,
     "root": "C:\\AAIC\\pranav_automation",
     "environment": {
@@ -17,8 +17,8 @@
             "metadata": "1.11.0"
         },
         "Analytics": {
-            "response_time": 7.181,
-            "Throughput": 7.334066740007334
+            "response_time": 4.090255,
+            "Throughput": 11.787228734120394
         }
     },
     "summary": {
@@ -55,22 +55,22 @@
             "lineno": 3,
             "outcome": "passed",
             "keywords": [
-                "pytestmark",
+                "pranav_automation",
                 "test_Openurl",
                 "test_a.py",
-                "pranav_automation",
+                "pytestmark",
                 "usefixtures"
             ],
             "setup": {
-                "duration": 1.5403436000051443,
+                "duration": 1.2701643999898806,
                 "outcome": "passed"
             },
             "call": {
-                "duration": 7.870284899981925,
+                "duration": 4.382942500000354,
                 "outcome": "passed"
             },
             "teardown": {
-                "duration": 0.0021970999951008707,
+                "duration": 0.0008094999939203262,
                 "outcome": "passed"
             }
         }

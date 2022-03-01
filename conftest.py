@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.firefox.service import Service
 
 
 def pytest_addoption(parser):
@@ -13,13 +14,26 @@ def setup(pytestconfig):
     # driver = webdriver.Chrome(ChromeDriverManager().download_and_install())
     # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
     # driver = webdriver.Chrome(service=s)
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-    options.add_argument("--disable-gpu")
-    chromedriver_path =Service(r"/usr/local/bin/chromedriver")
-    driver = webdriver.Chrome(service= chromedriver_path,options=options)
-    driver.maximize_window()
+    if pytestconfig.getoption("browser").lower() == "chrome":
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        chromedriver_path =Service(r"/usr/local/bin/chromedriver")
+        # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
+        driver = webdriver.Chrome(service= chromedriver_path,options=options)
+        driver.maximize_window()
+
+    elif pytestconfig.getoption("browser").lower() == "firefox":
+        options = webdriver.FirefoxOptions()
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        driver_path =Service(r"/usr/bin/geckodriver")
+        # driver_path =Service(r"C:\Users\AAIC\Downloads\geckodriver-v0.30.0-win64\geckodriver.exe")
+        driver = webdriver.Chrome(service= driver_path,options=options)
+        driver.maximize_window()
+
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
+    
 
 
 @pytest.fixture(scope='session')
