@@ -35,6 +35,10 @@ def setup(pytestconfig):
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
     
 
+@pytest.fixture()
+def metadata():
+    metadata = {}
+    return metadata
 
 @pytest.fixture(scope='session')
 def timings(metadata):
