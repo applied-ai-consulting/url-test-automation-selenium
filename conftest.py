@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.service import Service
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="chrome")
+    parser.addoption("--browser", action="store", default="firefox")
     parser.addoption("--url", action="store", default="https://google.com/")
 
 @pytest.fixture()
