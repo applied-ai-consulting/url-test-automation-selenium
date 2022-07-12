@@ -26,9 +26,8 @@ def setup(pytestconfig):
         options = webdriver.FirefoxOptions()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
-        driver_path =r"/usr/bin/geckodriver"
         # driver_path =Service(r"C:\Users\AAIC\Downloads\geckodriver-v0.30.0-win64\geckodriver.exe")
-        driver = webdriver.Firefox(executable_path=driver_path,options=options)
+        driver = webdriver.Firefox(executable_path="/usr/bin/geckodriver")
         driver.maximize_window()
 
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
