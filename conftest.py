@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.options import Options as F_options
 from selenium.webdriver.firefox.service import Service as F_service
 
 
@@ -24,7 +25,7 @@ def setup(pytestconfig):
         driver.maximize_window()
 
     elif pytestconfig.getoption("browser").lower() == "firefox":
-        options = webdriver.FirefoxOptions()
+        options = F_options()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         driver_path = F_service(r"/usr/bin/geckodriver")
