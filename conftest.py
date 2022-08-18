@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.firefox.service import Service as F_service
+from func_firefox import firefox_webdrvr
 
 
 def pytest_addoption(parser):
@@ -24,7 +24,7 @@ def setup(pytestconfig):
         driver.maximize_window()
 
     elif pytestconfig.getoption("browser").lower() == "firefox":
-        driver = func_firefx()
+        driver = firefox_webdrvr()
         driver.maximize_window()
 
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
