@@ -44,6 +44,8 @@ def timings(metadata):
         # fsw = {'response_time': response_time,"throughput":throughput}
         Analytics["Response_time"] = response_time
         Analytics["Throughput"] = throughput
+        print(f"response_time:{response_time}")
+        print(f"throughput:{throughput}")
         
 
     yield factory
