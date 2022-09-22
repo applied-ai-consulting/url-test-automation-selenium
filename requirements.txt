@@ -1,5 +1,5 @@
 pytest
-pytest-json-report
+pytest-json-report == 0.2.8
 pytest-html
 pytest-html-reporter
 selenium == 4.1.0
