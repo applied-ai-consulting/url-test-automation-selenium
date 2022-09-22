@@ -1,7 +1,7 @@
 pytest
-pytest-json-report == 0.2.8
+pytest-json-report
 pytest-html
-pytest-html-reporter
+pytest-html-reporter == 0.2.8
 selenium == 4.1.0
 jq
 pytest-metadata==1.11.0
