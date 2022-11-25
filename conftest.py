@@ -18,6 +18,8 @@ def setup(pytestconfig):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
         chromedriver_path =Service(r"/usr/local/bin/chromedriver")
         # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
         driver = webdriver.Chrome(service= chromedriver_path,options=options)
