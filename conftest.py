@@ -18,7 +18,7 @@ def setup(pytestconfig):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
-        chromedriver_path =Service(r"/usr/bin/chromedriver")
+        chromedriver_path =Service(r"/usr/local/bin/chromedriver")
         # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
         driver = webdriver.Chrome(service= chromedriver_path,options=options)
         driver.maximize_window()
