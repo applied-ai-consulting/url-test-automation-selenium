@@ -35,7 +35,7 @@ def setup(pytestconfig):
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        edgedriver_path =Service(r"/usr/local/bin/edgedriver")
+        edgedriver_path =Service(r"/usr/local/bin/msedgedriver")
         # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
         driver = webdriver.Edge(service= edgedriver_path,options=options)
         driver.maximize_window()
