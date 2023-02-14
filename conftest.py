@@ -29,6 +29,17 @@ def setup(pytestconfig):
         driver = firefox_webdrvr()
         driver.maximize_window()
 
+    elif pytestconfig.getoption("browser").lower() == "edge":
+        options = webdriver.EdgeOptions()
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        edgedriver_path =Service(r"/usr/local/bin/edgedriver")
+        # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
+        driver = webdriver.Edge(service= edgedriver_path,options=options)
+        driver.maximize_window()
+
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
     
 
