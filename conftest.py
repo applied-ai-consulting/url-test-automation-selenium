@@ -1,6 +1,10 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
+# from selenium.webdriver.chrome.service import Service
 from func_firefox import firefox_webdrvr
 
 
@@ -20,9 +24,10 @@ def setup(pytestconfig):
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        chromedriver_path =Service(r"/usr/local/bin/chromedriver")
-        # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
-        driver = webdriver.Chrome(service= chromedriver_path,options=options)
+        # chromedriver_path =Service(r"/usr/local/bin/chromedriver")
+        driver_path = ChromeDriverManager().install()
+
+        driver = webdriver.Chrome(executable_path=driver_path,options=options)
         driver.maximize_window()
 
     elif pytestconfig.getoption("browser").lower() == "firefox":
@@ -36,6 +41,8 @@ def setup(pytestconfig):
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         edgedriver_path =Service(r"/usr/local/bin/msedgedriver")
+        # edgedriver_path1=webdriver.Edge(EdgeChromiumDriverManager().install())
+
         # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
         driver = webdriver.Edge(service= edgedriver_path,options=options)
         driver.maximize_window()
