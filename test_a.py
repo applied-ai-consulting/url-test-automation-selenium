@@ -15,6 +15,7 @@ def test_Openurl(setup,timings):
     first_url_response_time = timings(response_time)
     assert driver.current_url == url
     driver.save_screenshot("report/ss.png")
+    print('assertion passed')
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     driver.save_screenshot("report/ss1.png")
     driver.close()
