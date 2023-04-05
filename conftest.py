@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
-
+from selenium.webdriver.safari.options import Options as SafariOptions
 # from selenium.webdriver.chrome.service import Service
 from func_firefox import firefox_webdrvr
 
@@ -48,11 +48,11 @@ def setup(pytestconfig):
         driver.maximize_window()
         
     elif pytestconfig.getoption("browser").lower() == "safari":
-        safari_options = webdriver.SafariOptions()
-        safari_options.add_argument("--headless")
-        safari_options.add_argument("--no-sandbox")
-        safari_options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Safari(options=safari_options)
+        options = SafariOptions()
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Safari(options=options)
         driver.maximize_window()
 
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
