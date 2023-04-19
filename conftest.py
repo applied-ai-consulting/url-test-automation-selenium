@@ -9,7 +9,7 @@ from func_firefox import firefox_webdrvr
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="firefox")
+    parser.addoption("--browser", action="store", default="safari")
     parser.addoption("--url", action="store", default="https://google.com/")
 
 @pytest.fixture()
@@ -20,7 +20,7 @@ def setup(pytestconfig):
     # driver = webdriver.Chrome(service=s)
     if pytestconfig.getoption("browser").lower() == "chrome":
         options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
+        # options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
@@ -50,9 +50,10 @@ def setup(pytestconfig):
     elif pytestconfig.getoption("browser").lower() == "safari":
         options = SafariOptions()
         options.add_argument("--headless")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Safari(options=options)
+        # options.add_argument("--no-sandbox")
+        # options.add_argument("--disable-dev-shm-usage")
+        # driver = webdriver.Safari(options=options)
+        driver = webdriver.Safari(executable_path='/usr/bin/WebKitWebDriver', options=options)
         driver.maximize_window()
 
     yield {"driver": driver, "url": pytestconfig.getoption("url")}
