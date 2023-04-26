@@ -20,7 +20,7 @@ def setup(pytestconfig):
     # driver = webdriver.Chrome(service=s)
     if pytestconfig.getoption("browser").lower() == "chrome":
         options = webdriver.ChromeOptions()
-        # options.add_argument("--headless")
+        options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
