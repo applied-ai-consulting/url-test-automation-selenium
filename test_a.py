@@ -10,6 +10,7 @@ def test_Openurl(setup,timings):
         url = url + '/'
     before_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
     driver.get(url)
+    driver.set_page_load_timeout(120)    
     now_time = datetime.now().strftime('%H%M%S%f')  #  Timestamp
     response_time = int(now_time) - int(before_time)
     print(response_time)
