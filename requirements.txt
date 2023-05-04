@@ -4,6 +4,6 @@ pytest-html
 pytest-html-reporter
 selenium == 4.1.0
 jq
-webdriver-manager
+webdriver-manager == 3.8.4
 pytest-metadata==1.11.0
 
