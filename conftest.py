@@ -24,10 +24,10 @@ def setup(pytestconfig):
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-        # chromedriver_path =Service(r"/usr/local/bin/chromedriver")
-        driver_path = ChromeDriverManager().install()
+        chromedriver_path =Service(r"/usr/local/bin/chromedriver")
+        #driver_path = ChromeDriverManager().install()
 
-        driver = webdriver.Chrome(executable_path=driver_path,options=options)
+        driver = webdriver.Chrome(executable_path=chromedriver_path,options=options)
         driver.maximize_window()
 
     elif pytestconfig.getoption("browser").lower() == "firefox":
