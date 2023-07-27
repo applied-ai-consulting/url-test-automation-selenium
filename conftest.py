@@ -27,7 +27,8 @@ def setup(pytestconfig):
         chromedriver_path =Service(r"/usr/local/bin/chromedriver")
         #driver_path = ChromeDriverManager().install()
 
-        driver = webdriver.Chrome(executable_path=chromedriver_path,options=options)
+        # driver = webdriver.Chrome(executable_path=chromedriver_path,options=options)
+        driver = webdriver.Chrome(service = chromedriver_path,options=options)
         driver.maximize_window()
 
     elif pytestconfig.getoption("browser").lower() == "firefox":
