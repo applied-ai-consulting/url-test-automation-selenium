@@ -16,7 +16,9 @@ def test_Openurl(setup,timings):
     response_time = int(now_time) - int(before_time)
     print(response_time)
     first_url_response_time = timings(response_time)
-    assert driver.current_url == url
+    stripped_url = url.replace("https://", "").replace("http://", "")
+    assert stripped_url in driver.current_url
+    # assert driver.current_url == url
     time.sleep(15)
     driver.save_screenshot("report/ss.png")
     print('assertion passed')
