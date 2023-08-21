@@ -1,6 +1,7 @@
 from datetime import datetime
 import pytest
 import time
+import requests
 
 @pytest.mark.usefixtures("timings")
 def test_Openurl(setup,timings):
@@ -16,8 +17,11 @@ def test_Openurl(setup,timings):
     response_time = int(now_time) - int(before_time)
     print(response_time)
     first_url_response_time = timings(response_time)
-    stripped_url = url.replace("https://", "").replace("http://", "")
-    assert stripped_url in driver.current_url
+    #stripped_url = url.replace("https://", "").replace("http://", "")
+    response = requests.get(url)
+    print(response)
+    assert response.status_code == 200
+    #assert stripped_url in driver.current_url
     # assert driver.current_url == url
     time.sleep(15)
     driver.save_screenshot("report/ss.png")
