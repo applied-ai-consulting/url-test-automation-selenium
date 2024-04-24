@@ -9,7 +9,7 @@ from func_firefox import firefox_webdrvr
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action="store", default="safari")
+    parser.addoption("--browser_name", action="store", default="safari")
     parser.addoption("--url", action="store", default="https://google.com/")
 
 @pytest.fixture()
@@ -18,7 +18,7 @@ def setup(pytestconfig):
     # driver = webdriver.Chrome(ChromeDriverManager().download_and_install())
     # s = Service(r"C:\Users\AAIC\Downloads\chromedriver_win32\chromedriver.exe")
     # driver = webdriver.Chrome(service=s)
-    if pytestconfig.getoption("browser").lower() == "chrome":
+    if pytestconfig.getoption("browser_name").lower() == "chrome":
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
@@ -31,11 +31,11 @@ def setup(pytestconfig):
         driver = webdriver.Chrome(service = chromedriver_path,options=options)
         driver.maximize_window()
 
-    elif pytestconfig.getoption("browser").lower() == "firefox":
+    elif pytestconfig.getoption("browser_name").lower() == "firefox":
         driver = firefox_webdrvr()
         driver.maximize_window()
 
-    elif pytestconfig.getoption("browser").lower() == "edge":
+    elif pytestconfig.getoption("browser_name").lower() == "edge":
         options = webdriver.EdgeOptions()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
@@ -48,7 +48,7 @@ def setup(pytestconfig):
         driver = webdriver.Edge(service= edgedriver_path,options=options)
         driver.maximize_window()
         
-    elif pytestconfig.getoption("browser").lower() == "safari":
+    elif pytestconfig.getoption("browser_name").lower() == "safari":
         options = SafariOptions()
         options.add_argument("--headless")
         # options.add_argument("--no-sandbox")
